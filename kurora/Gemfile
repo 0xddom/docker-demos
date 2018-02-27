@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'warbler'
+gem 'httparty'
+gem 'neo4j'
+gem 'nokogiri'
+gem 'slf4j'

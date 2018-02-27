@@ -1,0 +1,4 @@
+FROM foldr/kurorabase:latest
+MAINTAINER foldr <foldr@tfwno.gf>
+
+CMD java -jar dist/kurora.jar crawler

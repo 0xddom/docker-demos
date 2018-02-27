@@ -1,0 +1,9 @@
+FROM jruby:latest
+MAINTAINER foldr <foldr@tfwno.gf>
+
+ADD . kurora
+
+WORKDIR kurora
+RUN bundle install
+RUN bundle exec warble jar
+

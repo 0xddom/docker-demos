@@ -1,0 +1,2 @@
+Spanish models -> 2016
+Ner -> 2015 with spanish classifiers of 2016 model.

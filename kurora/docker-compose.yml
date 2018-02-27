@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  crawler:
+   image: foldr/kuroracrawler:latest
+   links:
+     - restmq
+     - neo4j
+
+  watcher:
+   image: foldr/kurorabase:latest
+   command: java -jar dist/kurora.jar watch
+   links:
+     - restmq
+     - crawler
+
+  analyzer:
+   image: foldr/kurorabase:latest
+   command: java -jar dist/kurora.jar analyze
+   links:
+     - neo4j
+      
+  restmq:
+    image: pablozaiden/restmq
+    ports:
+      - 8888:8888
+
+  neo4j:
+    image: neo4j
+    environment:
+      NEO4J_AUTH: 'none'
+    ports:
+      - 7475:7474
